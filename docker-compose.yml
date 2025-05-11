@@ -1,7 +1,21 @@
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - api
+    environment:
+      - VITE_API_URL=http://localhost:3000
+
   api:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
@@ -34,7 +48,7 @@ services:
 
   seed:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     depends_on:
       - neo4j

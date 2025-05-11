@@ -168,7 +168,7 @@ const Graph = () => {
         }
     };
 
-    // Show a helpful loading state with stats
+    // Show a loading state with stats
     if (loading) {
         return (
             <div className="loading-container">
@@ -211,7 +211,6 @@ const Graph = () => {
         edgeElasticity: 0.45,
         // Updated to fix isHeadless issue:
         randomize: true,
-        // Remove boundingBox config here
     };
 
     const cytoscapeRenderOptions = {

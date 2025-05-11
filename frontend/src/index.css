@@ -72,11 +72,8 @@ body {
 node.highlighted {
   border-width: 3px;
   border-color: #FFC107;
-  border-opacity: 1;
 }
 
 edge.highlighted {
   width: 3;
-  line-color: #FFC107;
-  target-arrow-color: #FFC107;
 }
