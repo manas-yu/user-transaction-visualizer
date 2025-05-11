@@ -47,9 +47,9 @@ Automatically seed the database with sample data
 
 Make the services available at:
 
-- [Frontend](http://localhost:5173)
-- [Backend API](http://localhost:3000)
-- [Neo4j Browser](http://localhost:7474) (user: neo4j, password: password)
+- Frontend: [http://localhost:5173](http://localhost:5173)
+- Backend API: [http://localhost:3000](http://localhost:3000)
+- Neo4j Browser: [http://localhost:7474](http://localhost:7474) (user: neo4j, password: password)
 
 ### 3. To stop the application
 
