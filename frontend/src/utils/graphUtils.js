@@ -279,10 +279,10 @@ export const formatGraphData = (data) => {
 
 
 /**
- * Gets the improved style for the Cytoscape graph with better visibility and contrast
+ * Gets the style for the Cytoscape graph with better visibility and contrast
  * @returns {Array} - Cytoscape style array
  */
-export const getImprovedGraphStylesheet = () => [
+export const getGraphStylesheet = () => [
     {
         selector: 'node',
         style: {

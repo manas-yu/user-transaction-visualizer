@@ -16,7 +16,6 @@ const api = axios.create({
 api.interceptors.response.use(
     response => response,
     error => {
-        // Format error message for better debugging
         if (error.response) {
             // Server responded with an error status
             console.error('API Error:', {
@@ -32,7 +31,6 @@ api.interceptors.response.use(
                 method: error.config.method
             });
         } else {
-            // Something happened in setting up the request
             console.error('API Request Error:', error.message);
         }
         return Promise.reject(error);
@@ -46,7 +44,7 @@ export const getUsers = async () => {
         return response.data || [];
     } catch (error) {
         console.error('Error fetching users:', error);
-        return []; // Return empty array instead of throwing
+        return [];
     }
 };
 
@@ -57,7 +55,7 @@ export const getTransactions = async () => {
         return response.data || [];
     } catch (error) {
         console.error('Error fetching transactions:', error);
-        return []; // Return empty array instead of throwing
+        return [];
     }
 };
 
@@ -93,7 +91,7 @@ export const getTransactionRelationships = async (transactionId) => {
         return response.data || { transaction: { id: transactionId }, users: [] };
     } catch (error) {
         console.error(`Error fetching relationships for transaction ${transactionId}:`, error);
-        // Return a minimal valid structure instead of throwing
+
         return { transaction: { id: transactionId }, users: [] };
     }
 };

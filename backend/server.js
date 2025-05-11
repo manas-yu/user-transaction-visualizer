@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const relationshipRoutes = require('./routes/relationshipRoutes');
+const analyticsRoutes = require('./routes/analyticsRoutes');
+const exportRoutes = require('./routes/exportRoutes');
 const { initializeDb } = require('./db/neo4jConnection');
 
 dotenv.config();
@@ -15,6 +17,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Create exports directory if it doesn't exist
+const fs = require('fs');
+if (!fs.existsSync('./exports')) {
+    fs.mkdirSync('./exports', { recursive: true });
+}
+
 // Database initialization
 initializeDb();
 
@@ -22,6 +30,8 @@ initializeDb();
 app.use('/users', userRoutes);
 app.use('/transactions', transactionRoutes);
 app.use('/relationships', relationshipRoutes);
+app.use('/analytics', analyticsRoutes);
+app.use('/export', exportRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

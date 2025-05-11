@@ -3,7 +3,7 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import fcose from 'cytoscape-fcose';
 import { getCompleteGraph } from '../services/api';
-import { formatGraphData, getImprovedGraphStylesheet } from '../utils/graphUtils';
+import { formatGraphData, getGraphStylesheet } from '../utils/graphUtils';
 import ErrorBoundary from './ErrorBoundary';
 import './Graph.css';
 
@@ -215,11 +215,11 @@ const Graph = () => {
 
     const cytoscapeRenderOptions = {
         elements: elements,
-        style: getImprovedGraphStylesheet(),
-        layout: { name: 'preset' }, // Start with preset layout (no positioning)
+        style: getGraphStylesheet(),
+        layout: { name: 'preset' },
         maxZoom: 5,
         minZoom: 0.1,
-        wheelSensitivity: 0.2, // Reduced for smoother zooming
+        wheelSensitivity: 0.2,
         userZoomingEnabled: true,
         userPanningEnabled: true,
         boxSelectionEnabled: true,
@@ -305,7 +305,6 @@ const Graph = () => {
                                             }).run();
                                         } catch (e) {
                                             console.error('Fallback layout also failed:', e);
-                                            // Ultimate fallback - just use grid layout
                                             try {
                                                 cy.layout({ name: 'grid' }).run();
                                             } catch (final) {
@@ -313,7 +312,7 @@ const Graph = () => {
                                             }
                                         }
                                     }
-                                }, 300); // Use setTimeout instead of requestAnimationFrame for reliability
+                                }, 300);
                             }}
                         />
                     </ErrorBoundary>

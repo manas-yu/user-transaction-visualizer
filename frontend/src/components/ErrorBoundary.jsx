@@ -27,12 +27,10 @@ class ErrorBoundary extends React.Component {
         // Update state with error info
         this.setState({ errorInfo });
 
-        // You can also log the error to an error reporting service here
     }
 
     render() {
         if (this.state.hasError) {
-            // You can render any custom fallback UI
             return (
                 <div className="error-boundary-container">
                     <h2>Something went wrong with the graph visualization.</h2>
@@ -40,7 +38,7 @@ class ErrorBoundary extends React.Component {
                     <button onClick={() => window.location.reload()}>
                         Refresh Page
                     </button>
-                    {/* Only show technical details in development */}
+                    { }
                     {(
                         <details className="error-details">
                             <summary>Technical Error Details</summary>
