@@ -39,4 +39,46 @@ router.get('/shortestPath', async (req, res) => {
     }
 });
 
+
+/**
+ * GET /analytics/transactionClusters
+ * Find clusters of transactions based on shared attributes
+ */
+router.get('/transactionClusters', async (req, res) => {
+    try {
+        const { attribute, minClusterSize } = req.query;
+
+        // Validate required parameters
+        if (!attribute) {
+            return res.status(400).json({
+                error: 'Missing required parameter: attribute',
+                validAttributes: ['ip', 'deviceId', 'accountNumber', 'beneficiaryAccount', 'location']
+            });
+        }
+
+        // Parse minClusterSize if provided
+        const parsedMinSize = minClusterSize ? parseInt(minClusterSize, 10) : 2;
+
+        // Validate minClusterSize is a positive integer
+        if (isNaN(parsedMinSize) || parsedMinSize <= 0) {
+            return res.status(400).json({
+                error: 'minClusterSize must be a positive integer'
+            });
+        }
+
+        // Get transaction clusters
+        const clusters = await clusterTransactions(attribute, parsedMinSize);
+
+        res.status(200).json({
+            attribute,
+            minClusterSize: parsedMinSize,
+            clusterCount: clusters.length,
+            clusters
+        });
+    } catch (error) {
+        console.error('Error clustering transactions:', error);
+        res.status(500).json({ error: 'Failed to cluster transactions', details: error.message });
+    }
+});
+
 module.exports = router;
