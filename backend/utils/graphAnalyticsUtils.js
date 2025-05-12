@@ -100,7 +100,7 @@ async function clusterTransactions(attribute, minClusterSize = 2) {
 
     try {
         // Validate attribute
-        const validAttributes = ['ip', 'deviceId', 'accountNumber', 'beneficiaryAccount', 'location'];
+        const validAttributes = ['ipAddress', 'deviceId', 'currency', 'status', 'amount'];
         if (!validAttributes.includes(attribute)) {
             throw new Error(`Invalid attribute: ${attribute}. Valid options are: ${validAttributes.join(', ')}`);
         }

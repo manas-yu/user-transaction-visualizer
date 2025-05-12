@@ -6,7 +6,7 @@ This project visualizes relationships between user accounts using transaction da
 
 - **Graph Database**: Neo4j for storing user and transaction relationships
 - **Backend API**: RESTful API endpoints for managing users, transactions, and relationships
-- **Frontend Visualization**: Interactive graph visualization using Cytoscape.js or a similar library
+- **Frontend Visualization**: Interactive graph visualization using Cytoscape.js
 - **Relationship Detection**: Automatic detection of relationships based on transactions and shared attributes
 - **Containerized Environment**: Containerized application for easy deployment
 
