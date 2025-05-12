@@ -18,6 +18,9 @@ This project visualizes relationships between user accounts using transaction da
 - `GET /transactions`: List all transactions
 - `GET /relationships/user/:id`: Fetch all connections of a user
 - `GET /relationships/transaction/:id`: Fetch all connections of a transaction
+- `GET /analytics/shortestPath`: Find the shortest path between two users
+- `GET /analytics/transactionClusters`: Find clusters of transactions sharing attributes
+- `GET /export/graph`: Export the full graph in JSON or CSV
 
 ## Prerequisites
 
