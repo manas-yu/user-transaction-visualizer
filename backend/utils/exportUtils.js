@@ -291,9 +291,6 @@ async function saveExportToFile(exportData, filename, outputDir = 'exports') {
 }
 
 module.exports = {
-    exportUsers,
-    exportTransactions,
-    exportRelationships,
     exportFullGraph,
     saveExportToFile
 };
