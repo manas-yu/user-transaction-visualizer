@@ -183,7 +183,7 @@ const Graph = () => {
         return (
             <div className="error-container">
                 <div className="error-message">
-                    <h3>Graph Error</h3>
+                    <h3>Server Issue</h3>
                     <p>{error}</p>
                     <button className="retry-button" onClick={() => window.location.reload()}>
                         Try Again
