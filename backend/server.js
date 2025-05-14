@@ -7,6 +7,7 @@ const relationshipRoutes = require('./routes/relationshipRoutes');
 const analyticsRoutes = require('./routes/analyticsRoutes');
 const exportRoutes = require('./routes/exportRoutes');
 const { initializeDb } = require('./db/neo4jConnection');
+const seedDatabase = require('./data/seedDataRunner');
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ if (!fs.existsSync('./exports')) {
 
 // Database initialization
 initializeDb();
+seedDatabase();
 
 // Routes
 app.use('/users', userRoutes);
