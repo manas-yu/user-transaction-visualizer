@@ -184,7 +184,7 @@ const Graph = () => {
             <div className="error-container">
                 <div className="error-message">
                     <h3>Server Issue</h3>
-                    <p>{error}</p>
+                    <p style={{ color: 'black' }}>{error}</p>
                     <button className="retry-button" onClick={() => window.location.reload()}>
                         Try Again
                     </button>
